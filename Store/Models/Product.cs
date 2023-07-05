@@ -7,7 +7,7 @@ namespace Store.Models
     {
         [Key]
         public int Id { get; set; }
-        public string? brand { get; set; }
+        public string? Brand { get; set; }
         public ProductType ProductType { get; set; }
         public Gender Gender { get; set; }
         public string? Description { get; set; }

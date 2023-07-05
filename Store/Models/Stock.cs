@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Drawing;
 
 namespace Store.Models
 {
@@ -11,7 +10,7 @@ namespace Store.Models
         [ForeignKey("ProductDetail")]
         public int? ProductDetailId { get; set; }
         public ProductDetail? ProductDetail { get; set; }
-        public string? Size { get; set; }
+        public Data.Enum.Size? Size { get; set; }
         public int? Quantity { get; set; }
     }
 }
