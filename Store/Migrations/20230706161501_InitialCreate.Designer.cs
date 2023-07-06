@@ -12,8 +12,8 @@ using Store.Data;
 namespace Store.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230705225052_SeedData")]
-    partial class SeedData
+    [Migration("20230706161501_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,21 +57,21 @@ namespace Store.Migrations
                             Id = 1,
                             Prices = 200.0,
                             ProductId = 1,
-                            StartDate = new DateTime(2023, 7, 5, 16, 50, 52, 832, DateTimeKind.Local).AddTicks(3531)
+                            StartDate = new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5313)
                         },
                         new
                         {
                             Id = 2,
                             Prices = 400.0,
                             ProductId = 2,
-                            StartDate = new DateTime(2023, 7, 5, 16, 50, 52, 832, DateTimeKind.Local).AddTicks(3544)
+                            StartDate = new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5327)
                         },
                         new
                         {
                             Id = 3,
                             Prices = 150.99000000000001,
                             ProductId = 3,
-                            StartDate = new DateTime(2023, 7, 5, 16, 50, 52, 832, DateTimeKind.Local).AddTicks(3545)
+                            StartDate = new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5328)
                         });
                 });
 
@@ -106,7 +106,7 @@ namespace Store.Migrations
                         new
                         {
                             Id = 1,
-                            Brand = "Tommy Hillfiguer",
+                            Brand = "Tommy Hilfiger",
                             Description = "Bonita camisa azul",
                             Gender = 0,
                             Image = "https://cdn-images.farfetch-contents.com/16/96/57/69/16965769_34746140_1000.jpg",
@@ -201,6 +201,29 @@ namespace Store.Migrations
                     b.HasIndex("ProductDetailId");
 
                     b.ToTable("Stocks");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ProductDetailId = 1,
+                            Quantity = 100,
+                            Size = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ProductDetailId = 2,
+                            Quantity = 100,
+                            Size = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ProductDetailId = 3,
+                            Quantity = 100,
+                            Size = 3
+                        });
                 });
 
             modelBuilder.Entity("Store.Models.Price", b =>

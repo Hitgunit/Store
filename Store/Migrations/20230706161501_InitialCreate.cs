@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace Store.Migrations
 {
     /// <inheritdoc />
@@ -17,7 +19,7 @@ namespace Store.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    brand = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Brand = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProductType = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -76,7 +78,7 @@ namespace Store.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductDetailId = table.Column<int>(type: "int", nullable: true),
-                    Size = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Size = table.Column<int>(type: "int", nullable: true),
                     Quantity = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -87,6 +89,46 @@ namespace Store.Migrations
                         column: x => x.ProductDetailId,
                         principalTable: "ProductDetails",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "Brand", "Description", "Gender", "Image", "ProductType" },
+                values: new object[,]
+                {
+                    { 1, "Tommy Hilfiger", "Bonita camisa azul", 0, "https://cdn-images.farfetch-contents.com/16/96/57/69/16965769_34746140_1000.jpg", 1 },
+                    { 2, "Lacoste", "Bonita playera rosa", 1, "https://static.dafiti.com.br/p/Lacoste-Camiseta-Lacoste-Logo-Rosa-7688-3778407-1-zoom.jpg", 1 },
+                    { 3, "C&A", "Bonito pantalon de mezclilla", 0, "https://th.bing.com/th/id/OIP.VZchNI-R6Ksx2sMqXlOJPwHaLH?pid=ImgDet&rs=1", 0 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Prices",
+                columns: new[] { "Id", "FinishDate", "Prices", "ProductId", "StartDate" },
+                values: new object[,]
+                {
+                    { 1, null, 200.0, 1, new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5313) },
+                    { 2, null, 400.0, 2, new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5327) },
+                    { 3, null, 150.99000000000001, 3, new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5328) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ProductDetails",
+                columns: new[] { "Id", "Color", "Material", "ProdcutId" },
+                values: new object[,]
+                {
+                    { 1, "Azul", "Algodon", 1 },
+                    { 2, "Rosa", "Poliester", 2 },
+                    { 3, "Azul", "Mezclilla", 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Stocks",
+                columns: new[] { "Id", "ProductDetailId", "Quantity", "Size" },
+                values: new object[,]
+                {
+                    { 1, 1, 100, 2 },
+                    { 2, 2, 100, 1 },
+                    { 3, 3, 100, 3 }
                 });
 
             migrationBuilder.CreateIndex(

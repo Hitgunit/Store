@@ -54,21 +54,21 @@ namespace Store.Migrations
                             Id = 1,
                             Prices = 200.0,
                             ProductId = 1,
-                            StartDate = new DateTime(2023, 7, 5, 16, 56, 20, 764, DateTimeKind.Local).AddTicks(7813)
+                            StartDate = new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5313)
                         },
                         new
                         {
                             Id = 2,
                             Prices = 400.0,
                             ProductId = 2,
-                            StartDate = new DateTime(2023, 7, 5, 16, 56, 20, 764, DateTimeKind.Local).AddTicks(7826)
+                            StartDate = new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5327)
                         },
                         new
                         {
                             Id = 3,
                             Prices = 150.99000000000001,
                             ProductId = 3,
-                            StartDate = new DateTime(2023, 7, 5, 16, 56, 20, 764, DateTimeKind.Local).AddTicks(7830)
+                            StartDate = new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5328)
                         });
                 });
 
