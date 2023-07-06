@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Store.Data;
 using Store.Models;
 using System.Diagnostics;
 
@@ -6,16 +7,16 @@ namespace Store.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
-
         public IActionResult Index()
         {
-            return View();
+            List<Product> products = _context.Products.ToList();
+            return View(products);
         }
 
         public IActionResult Privacy()
