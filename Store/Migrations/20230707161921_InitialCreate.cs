@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -19,6 +18,7 @@ namespace Store.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Brand = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProductType = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
@@ -31,27 +31,6 @@ namespace Store.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Prices",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductId = table.Column<int>(type: "int", nullable: true),
-                    Prices = table.Column<double>(type: "float", nullable: true),
-                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    FinishDate = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Prices", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Prices_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ProductDetails",
                 columns: table => new
                 {
@@ -59,7 +38,8 @@ namespace Store.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProdcutId = table.Column<int>(type: "int", nullable: true),
                     Material = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Color = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -93,32 +73,26 @@ namespace Store.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "Id", "Brand", "Description", "Gender", "Image", "ProductType" },
+                columns: new[] { "Id", "Brand", "Description", "Gender", "Image", "Name", "ProductType" },
                 values: new object[,]
                 {
-                    { 1, "Tommy Hilfiger", "Bonita camisa azul", 0, "https://cdn-images.farfetch-contents.com/16/96/57/69/16965769_34746140_1000.jpg", 1 },
-                    { 2, "Lacoste", "Bonita playera rosa", 1, "https://static.dafiti.com.br/p/Lacoste-Camiseta-Lacoste-Logo-Rosa-7688-3778407-1-zoom.jpg", 1 },
-                    { 3, "C&A", "Bonito pantalon de mezclilla", 0, "https://th.bing.com/th/id/OIP.VZchNI-R6Ksx2sMqXlOJPwHaLH?pid=ImgDet&rs=1", 0 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Prices",
-                columns: new[] { "Id", "FinishDate", "Prices", "ProductId", "StartDate" },
-                values: new object[,]
-                {
-                    { 1, null, 200.0, 1, new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5313) },
-                    { 2, null, 400.0, 2, new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5327) },
-                    { 3, null, 150.99000000000001, 3, new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5328) }
+                    { 1, "Tommy Hilfiger", "Bonita camisa azul", 0, "https://cdn-images.farfetch-contents.com/16/96/57/69/16965769_34746140_1000.jpg", null, 1 },
+                    { 2, "Lacoste", "Bonita playera rosa", 1, "https://static.dafiti.com.br/p/Lacoste-Camiseta-Lacoste-Logo-Rosa-7688-3778407-1-zoom.jpg", null, 1 },
+                    { 3, "C&A", "Bonito pantalon de mezclilla", 0, "https://th.bing.com/th/id/OIP.VZchNI-R6Ksx2sMqXlOJPwHaLH?pid=ImgDet&rs=1", null, 0 },
+                    { 4, "CCP", "Bonito pantalon", 1, "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/43cfb29d-0aa0-4220-9274-ec037c06e9c0.944b2c78bafceaeb124c93f1236507c7.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF", null, 0 },
+                    { 5, "Nike", "Bonita playera", 0, "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1a96003-8c49-41ab-9ec5-71dcafbdbeb1/playera-de-fitness-dri-fit-WlRvw8.png", null, 1 }
                 });
 
             migrationBuilder.InsertData(
                 table: "ProductDetails",
-                columns: new[] { "Id", "Color", "Material", "ProdcutId" },
+                columns: new[] { "Id", "Color", "Material", "Price", "ProdcutId" },
                 values: new object[,]
                 {
-                    { 1, "Azul", "Algodon", 1 },
-                    { 2, "Rosa", "Poliester", 2 },
-                    { 3, "Azul", "Mezclilla", 3 }
+                    { 1, "Azul", "Algodon", 299.0, 1 },
+                    { 2, "Rosa", "Poliester", 499.0, 2 },
+                    { 3, "Azul", "Mezclilla", 199.0, 3 },
+                    { 4, "Cafe", "Algodon", 499.0, 4 },
+                    { 5, "Blanca", "Algodon", 499.0, 5 }
                 });
 
             migrationBuilder.InsertData(
@@ -128,13 +102,10 @@ namespace Store.Migrations
                 {
                     { 1, 1, 100, 2 },
                     { 2, 2, 100, 1 },
-                    { 3, 3, 100, 3 }
+                    { 3, 3, 100, 3 },
+                    { 4, 4, 100, 0 },
+                    { 5, 5, 100, 1 }
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Prices_ProductId",
-                table: "Prices",
-                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductDetails_ProdcutId",
@@ -150,9 +121,6 @@ namespace Store.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "Prices");
-
             migrationBuilder.DropTable(
                 name: "Stocks");
 

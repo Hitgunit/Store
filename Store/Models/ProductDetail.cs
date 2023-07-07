@@ -12,5 +12,6 @@ namespace Store.Models
         public Product? Product { get; set; }
         public string? Material { get; set; }
         public string? Color { get; set; }
+        public double? Price { get; set; }
     }
 }

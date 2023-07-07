@@ -11,7 +11,6 @@ namespace Store.Data
         {
             
         }
-        public DbSet<Price> Prices { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetails { get; set; }
         public DbSet<Stock> Stocks { get; set; }
@@ -45,6 +44,24 @@ namespace Store.Data
                     Gender = Enum.Gender.Man,
                     Description = "Bonito pantalon de mezclilla",
                     Image = "https://th.bing.com/th/id/OIP.VZchNI-R6Ksx2sMqXlOJPwHaLH?pid=ImgDet&rs=1"
+                },
+                new Product
+                {
+                    Id = 4,
+                    Brand = "CCP",
+                    ProductType = Enum.ProductType.Pant,
+                    Gender = Enum.Gender.Female,
+                    Description = "Bonito pantalon",
+                    Image = "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/43cfb29d-0aa0-4220-9274-ec037c06e9c0.944b2c78bafceaeb124c93f1236507c7.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+                },
+                new Product
+                {
+                    Id = 5,
+                    Brand = "Nike",
+                    ProductType = Enum.ProductType.Shirt,
+                    Gender = Enum.Gender.Man,
+                    Description = "Bonita playera",
+                    Image = "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1a96003-8c49-41ab-9ec5-71dcafbdbeb1/playera-de-fitness-dri-fit-WlRvw8.png"
                 }
                 );
             builder.Entity<ProductDetail>().HasData(
@@ -53,49 +70,42 @@ namespace Store.Data
                     Id = 1,
                     ProdcutId = 1,
                     Material = "Algodon",
-                    Color = "Azul"
+                    Color = "Azul",
+                    Price = 299
                 },
                 new ProductDetail
                 {
                     Id = 2,
                     ProdcutId = 2,
                     Material = "Poliester",
-                    Color = "Rosa"
+                    Color = "Rosa",
+                    Price = 499
                 },
                 new ProductDetail
                 {
                     Id = 3,
                     ProdcutId = 3,
                     Material = "Mezclilla",
-                    Color = "Azul"
-                }
-                );
-            builder.Entity<Price>().HasData(
-                new Price
-                {
-                    Id = 1,
-                    ProductId = 1,
-                    Prices = 200,
-                    StartDate = DateTime.Now
-
+                    Color = "Azul",
+                    Price = 199
                 },
-                new Price
+                new ProductDetail
                 {
-                    Id = 2,
-                    ProductId = 2,
-                    Prices = 400,
-                    StartDate = DateTime.Now
-
+                    Id = 4,
+                    ProdcutId = 4,
+                    Material = "Algodon",
+                    Color = "Cafe",
+                    Price = 499
                 },
-                new Price
+                new ProductDetail
                 {
-                    Id = 3,
-                    ProductId = 3,
-                    Prices = 150.99,
-                    StartDate = DateTime.Now
-
+                    Id = 5,
+                    ProdcutId = 5,
+                    Material = "Algodon",
+                    Color = "Blanca",
+                    Price = 499
                 }
-                );
+                ); ;
             builder.Entity<Stock>().HasData(
                 new Stock
                 {
@@ -116,6 +126,20 @@ namespace Store.Data
                     Id = 3,
                     ProductDetailId = 3,
                     Size = Size.XtraLarge,
+                    Quantity = 100,
+                },
+                new Stock
+                {
+                    Id = 4,
+                    ProductDetailId = 4,
+                    Size = Size.Small,
+                    Quantity = 100,
+                },
+                new Stock
+                {
+                    Id = 5,
+                    ProductDetailId = 5,
+                    Size = Size.Medium,
                     Quantity = 100,
                 }
                 );
