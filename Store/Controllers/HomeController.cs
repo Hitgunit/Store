@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Store.Data;
 using Store.Models;
 using System.Diagnostics;
@@ -15,7 +16,9 @@ namespace Store.Controllers
         }
         public IActionResult Index()
         {
-            List<Product> products = _context.Products.ToList();
+            //Permite ver los usuarios en forma de lista
+            //Se agrega un iclude para poder hacer referencia a la tabla product
+            List<ProductDetail> products = _context.ProductDetails.Include(a => a.Product).ToList();
             return View(products);
         }
 
