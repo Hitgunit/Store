@@ -16,3 +16,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+.small-search {
+    width: 200px;
+}
+
+.image-adjust {
+    height: 500px; /* Ajusta la altura deseada */
+    object-fit: cover; /* Ajusta el modo de ajuste de la imagen */
+}
+.image-adjust-description{
+    height: 350px;
+    
+}

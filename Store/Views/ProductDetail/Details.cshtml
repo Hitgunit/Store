@@ -1,0 +1,30 @@
+﻿@model ProductDetail
+
+<span class="fs-4">@Model.Product?.Name</span>
+
+<hr class="col-3">
+
+<div class="row g-5">
+    <div class="col-md-6">
+<img src="@Model.Product?.Image" class="image-adjust-description" alt="...">
+</div>
+    <div class="col-md-6">
+<p class="fs-5 col-md-8">@Model.Product?.Description</p>
+<div class="mb-5">
+    <a href="#" class="btn btn-primary">Agregar al Carrito</a>
+</div>
+</div>
+</div>
+<hr class="col-3">
+
+
+<div class="row g-5">
+    <div class="col-md-6">
+        <h2 class="text-body-emphasis">Producto 1</h2>
+        <p>Ready to beyond the starter template? Check out these open source projects that you can quickly duplicate to a new GitHub repository.</p>
+</div>
+    <div class="col-md-6">
+        <h2 class="text-body-emphasis">Producto 2</h2>
+        <p>Read more detailed instructions and documentation on using or contributing to Bootstrap.</p>
+</div>
+</div>

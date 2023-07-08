@@ -12,8 +12,8 @@ using Store.Data;
 namespace Store.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230706161501_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230708015653_AddNameColumn")]
+    partial class AddNameColumn
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,56 +24,6 @@ namespace Store.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Store.Models.Price", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime?>("FinishDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double?>("Prices")
-                        .HasColumnType("float");
-
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Prices");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Prices = 200.0,
-                            ProductId = 1,
-                            StartDate = new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5313)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Prices = 400.0,
-                            ProductId = 2,
-                            StartDate = new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5327)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Prices = 150.99000000000001,
-                            ProductId = 3,
-                            StartDate = new DateTime(2023, 7, 6, 10, 15, 1, 159, DateTimeKind.Local).AddTicks(5328)
-                        });
-                });
 
             modelBuilder.Entity("Store.Models.Product", b =>
                 {
@@ -95,6 +45,9 @@ namespace Store.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ProductType")
                         .HasColumnType("int");
 
@@ -110,6 +63,7 @@ namespace Store.Migrations
                             Description = "Bonita camisa azul",
                             Gender = 0,
                             Image = "https://cdn-images.farfetch-contents.com/16/96/57/69/16965769_34746140_1000.jpg",
+                            Name = "Tommy Hilfiger A54",
                             ProductType = 1
                         },
                         new
@@ -119,6 +73,7 @@ namespace Store.Migrations
                             Description = "Bonita playera rosa",
                             Gender = 1,
                             Image = "https://static.dafiti.com.br/p/Lacoste-Camiseta-Lacoste-Logo-Rosa-7688-3778407-1-zoom.jpg",
+                            Name = "Lacoste SD34",
                             ProductType = 1
                         },
                         new
@@ -128,7 +83,28 @@ namespace Store.Migrations
                             Description = "Bonito pantalon de mezclilla",
                             Gender = 0,
                             Image = "https://th.bing.com/th/id/OIP.VZchNI-R6Ksx2sMqXlOJPwHaLH?pid=ImgDet&rs=1",
+                            Name = "C&A Camoo Late",
                             ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Brand = "CCP",
+                            Description = "Bonito pantalon",
+                            Gender = 1,
+                            Image = "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/43cfb29d-0aa0-4220-9274-ec037c06e9c0.944b2c78bafceaeb124c93f1236507c7.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+                            Name = "CCP Fashion",
+                            ProductType = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Brand = "Nike",
+                            Description = "Bonita playera",
+                            Gender = 0,
+                            Image = "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1a96003-8c49-41ab-9ec5-71dcafbdbeb1/playera-de-fitness-dri-fit-WlRvw8.png",
+                            Name = "Nike Sport",
+                            ProductType = 1
                         });
                 });
 
@@ -146,6 +122,9 @@ namespace Store.Migrations
                     b.Property<string>("Material")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double?>("Price")
+                        .HasColumnType("float");
+
                     b.Property<int?>("ProdcutId")
                         .HasColumnType("int");
 
@@ -161,6 +140,7 @@ namespace Store.Migrations
                             Id = 1,
                             Color = "Azul",
                             Material = "Algodon",
+                            Price = 299.0,
                             ProdcutId = 1
                         },
                         new
@@ -168,6 +148,7 @@ namespace Store.Migrations
                             Id = 2,
                             Color = "Rosa",
                             Material = "Poliester",
+                            Price = 499.0,
                             ProdcutId = 2
                         },
                         new
@@ -175,7 +156,24 @@ namespace Store.Migrations
                             Id = 3,
                             Color = "Azul",
                             Material = "Mezclilla",
+                            Price = 199.0,
                             ProdcutId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Color = "Cafe",
+                            Material = "Algodon",
+                            Price = 499.0,
+                            ProdcutId = 4
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Color = "Blanca",
+                            Material = "Algodon",
+                            Price = 499.0,
+                            ProdcutId = 5
                         });
                 });
 
@@ -223,16 +221,21 @@ namespace Store.Migrations
                             ProductDetailId = 3,
                             Quantity = 100,
                             Size = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ProductDetailId = 4,
+                            Quantity = 100,
+                            Size = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ProductDetailId = 5,
+                            Quantity = 100,
+                            Size = 1
                         });
-                });
-
-            modelBuilder.Entity("Store.Models.Price", b =>
-                {
-                    b.HasOne("Store.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Store.Models.ProductDetail", b =>

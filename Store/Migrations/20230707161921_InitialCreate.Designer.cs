@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Store.Data;
 
@@ -11,9 +12,11 @@ using Store.Data;
 namespace Store.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230707161921_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,7 +63,6 @@ namespace Store.Migrations
                             Description = "Bonita camisa azul",
                             Gender = 0,
                             Image = "https://cdn-images.farfetch-contents.com/16/96/57/69/16965769_34746140_1000.jpg",
-                            Name = "Tommy Hilfiger A54",
                             ProductType = 1
                         },
                         new
@@ -70,7 +72,6 @@ namespace Store.Migrations
                             Description = "Bonita playera rosa",
                             Gender = 1,
                             Image = "https://static.dafiti.com.br/p/Lacoste-Camiseta-Lacoste-Logo-Rosa-7688-3778407-1-zoom.jpg",
-                            Name = "Lacoste SD34",
                             ProductType = 1
                         },
                         new
@@ -80,7 +81,6 @@ namespace Store.Migrations
                             Description = "Bonito pantalon de mezclilla",
                             Gender = 0,
                             Image = "https://th.bing.com/th/id/OIP.VZchNI-R6Ksx2sMqXlOJPwHaLH?pid=ImgDet&rs=1",
-                            Name = "C&A Camoo Late",
                             ProductType = 0
                         },
                         new
@@ -90,7 +90,6 @@ namespace Store.Migrations
                             Description = "Bonito pantalon",
                             Gender = 1,
                             Image = "https://i5.walmartimages.com.mx/mg/gm/3pp/asr/43cfb29d-0aa0-4220-9274-ec037c06e9c0.944b2c78bafceaeb124c93f1236507c7.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
-                            Name = "CCP Fashion",
                             ProductType = 0
                         },
                         new
@@ -100,7 +99,6 @@ namespace Store.Migrations
                             Description = "Bonita playera",
                             Gender = 0,
                             Image = "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1a96003-8c49-41ab-9ec5-71dcafbdbeb1/playera-de-fitness-dri-fit-WlRvw8.png",
-                            Name = "Nike Sport",
                             ProductType = 1
                         });
                 });
