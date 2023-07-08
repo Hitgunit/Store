@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ProductDetail>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <!-- Añade esta línea -->
+                <a asp-controller="ProductDetail" asp-action="Details" asp-route-id="@item.Id" style="color: inherit; text-decoration: none;">
+                    <div class="card" style="width: 20rem;">
+                        <img src="@item.Product?.Image" class="image-adjust" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Product?.Name</h5>
+                            <h4 class="card-title">@item.Price</h4>
+                            <p class="card-text">@item.Product?.Description</p>
+                        </div>
+                    </div>
+                </a>
+            </div> <!-- Y esta línea -->
+        }
+    </div>
+</div>

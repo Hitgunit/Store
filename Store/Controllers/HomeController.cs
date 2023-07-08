@@ -16,10 +16,7 @@ namespace Store.Controllers
         }
         public IActionResult Index()
         {
-            //Permite ver los usuarios en forma de lista
-            //Se agrega un iclude para poder hacer referencia a la tabla product
-            List<ProductDetail> products = _context.ProductDetails.Include(a => a.Product).ToList();
-            return View(products);
+            return View();
         }
 
         public IActionResult Privacy()
