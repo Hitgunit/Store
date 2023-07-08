@@ -21,6 +21,7 @@ namespace Store.Data
                 new Product
                 {
                     Id = 1,
+                    Name = "Tommy Hilfiger A54",
                     Brand = "Tommy Hilfiger",
                     ProductType = Enum.ProductType.Shirt,
                     Gender = Enum.Gender.Man,
@@ -30,6 +31,7 @@ namespace Store.Data
                 new Product
                 {
                     Id = 2,
+                    Name = "Lacoste SD34",
                     Brand = "Lacoste",
                     ProductType = Enum.ProductType.Shirt,
                     Gender = Enum.Gender.Female,
@@ -39,6 +41,7 @@ namespace Store.Data
                 new Product
                 {
                     Id = 3,
+                    Name = "C&A Camoo Late",
                     Brand = "C&A",
                     ProductType = Enum.ProductType.Pant,
                     Gender = Enum.Gender.Man,
@@ -48,6 +51,7 @@ namespace Store.Data
                 new Product
                 {
                     Id = 4,
+                    Name = "CCP Fashion",
                     Brand = "CCP",
                     ProductType = Enum.ProductType.Pant,
                     Gender = Enum.Gender.Female,
@@ -57,6 +61,7 @@ namespace Store.Data
                 new Product
                 {
                     Id = 5,
+                    Name = "Nike Sport",
                     Brand = "Nike",
                     ProductType = Enum.ProductType.Shirt,
                     Gender = Enum.Gender.Man,
