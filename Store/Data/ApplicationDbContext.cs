@@ -14,6 +14,7 @@ namespace Store.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductDetail> ProductDetails { get; set; }
         public DbSet<Stock> Stocks { get; set; }
+        public DbSet<ShoppingCartItem> shoppingCartItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -21,10 +21,32 @@ body {
 }
 
 .image-adjust {
-    height: 500px; /* Ajusta la altura deseada */
-    object-fit: cover; /* Ajusta el modo de ajuste de la imagen */
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
 }
+
 .image-adjust-description{
     height: 350px;
     
 }
+
+.fi-rr-shopping-cart {
+    font-size: 30px; /* Ajusta esto al tamaño que quieras */
+}
+
+.card-title.text-uppercase {
+    letter-spacing: 1px; /* Esto añadirá un poco de espacio entre las letras */
+}
+
+.card-title.text-primary {
+    color: #007bff; /* Esto cambiará el color del texto */
+}
+
+.card-text.text-muted {
+    font-size: 0.9rem; /* Esto cambiará el tamaño de la fuente del texto */
+}
+
+
+
+
