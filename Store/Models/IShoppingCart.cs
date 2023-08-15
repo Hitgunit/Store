@@ -2,11 +2,11 @@
 {
     public interface IShoppingCart
     {
-        void AddToCart(Product product);
+        void AddToCart(ProductDetail product);
 
-        int RemoveFromCart(Product product);
+        int RemoveFromCart(ProductDetail product);
 
-        List<Product> GetAll();
+        List<ShoppingCartItem> GetAll();
 
         void ClearCart();
 

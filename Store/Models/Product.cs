@@ -1,10 +1,12 @@
-﻿using Store.Data.Enum;
+﻿using Abp.Domain.Entities;
+using Store.Data.Enum;
 using System.ComponentModel.DataAnnotations;
 
 namespace Store.Models
 {
-    public class Product
+    public class Product 
     {
+
         [Key]
         public int Id { get; set; }
         public string? Name { get; set; }
@@ -13,6 +15,8 @@ namespace Store.Models
         public Gender Gender { get; set; }
         public string? Description { get; set; }
         public string? Image { get; set; }
+
+        
 
     }
 }

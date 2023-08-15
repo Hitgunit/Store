@@ -1,0 +1,9 @@
+﻿@model ShoppingCartViewModel
+
+<h3>aqui esta tu papi chulo</h3>
+
+@foreach( var line in Model.ShoppingCart.shoppingCartItems){
+    <h1>@line.Product</h1>
+    <h1>@line.Quantity</h1>
+    <h1>@line.Price</h1>
+}

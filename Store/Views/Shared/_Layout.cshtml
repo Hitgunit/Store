@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Store</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/metronic/themes/default/css/style.bundle.css" rel="stylesheet" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Store.styles.css" asp-append-version="true" />
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
@@ -19,7 +20,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between mt-1">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="ProductDetail" asp-action="Index">Product</a>
@@ -29,22 +30,25 @@
                         </li>
                     </ul>
                     <div class="input-group navbar-nav d-flex justify-content-end">
-                        <div class="form-outline">
-                            <input type="search" id="SearchBar" class="form-control" placeholder="Search" />
-                                               
+                        <div class="form-outline me-3">
+                            <i class="fi fi-rr-search text-gray-500 position-absolute top-50 translate-middle-y ms-5 fs-0"></i>
+                            <input type="text" class="form-control form-control-solid ps-14" name="search" value="" placeholder="Search..." data-kt-search-element="input" />
+                            <span class="position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-6" data-kt-search-element="spinner">
+                                <span class="spinner-border h-15px w-15px align-middle text-gray-400"></span>
+                            </span>
                         </div>
-                        <button type="button" class="btn btn-primary">
-                            <i class="fi fi-rr-search"></i>
-                        </button>
+                        <div class="symbol symbol-50px">
+                            <a href="#" class="symbol-label fw-semibold">
+                                <i class="fi fi-rr-shopping-cart"></i>
+                                <span class="symbol-badge badge badge-circle bg-danger start-100">3</span>
+                            </a>
+
+
+                        </div>
                     </div>
-                    <a class="nav-link d-flex" href="#">
-                @*        <span class="badge badge-pill bg-danger">1</span>*@
-                        <span><i class="fi fi-rr-shopping-cart"></i></span>
-                    </a>
                 </div>
-                    
+
             </div>
-            
         </nav>
     </header>
     <div class="container">

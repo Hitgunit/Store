@@ -32,20 +32,45 @@ body {
 }
 
 .fi-rr-shopping-cart {
-    font-size: 30px; /* Ajusta esto al tamaño que quieras */
+    font-size: 20px;
 }
 
 .card-title.text-uppercase {
-    letter-spacing: 1px; /* Esto añadirá un poco de espacio entre las letras */
+    letter-spacing: 1px; 
 }
 
 .card-title.text-primary {
-    color: #007bff; /* Esto cambiará el color del texto */
+    color: #007bff; 
 }
 
 .card-text.text-muted {
-    font-size: 0.9rem; /* Esto cambiará el tamaño de la fuente del texto */
+    font-size: 0.9rem; 
 }
+
+.fi-rr-add {
+    vertical-align: middle; 
+}
+.badge.badge-circle {
+
+    width: 1.25rem;
+    height: 1.25rem;
+}
+.symbol.symbol-50px .symbol-label {
+    width: 40px;
+    height: 40px;
+}
+
+.form-control {
+    padding:.5rem 0 .5rem 0 ;
+    height:40px;
+   
+}
+    .form-control.form-control-solid {
+        background-color: #f5f8fa;
+    }
+
+
+
 
 
 
